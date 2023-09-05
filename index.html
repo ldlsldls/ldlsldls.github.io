@@ -95,7 +95,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="sever"><a href="#sever" class="headerlink" title="sever"></a>sever</h3><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dvd_sun/article/details/124531184">TigerVNC安装使用__dwSun_的博客-CSDN博客</a></p>
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qxqxqzzz/article/details/103974974">Ubuntu VNC 安装&#x2F;使用&#x2F;故障解决 看这一篇就够了_城俊BLOG的博客-CSDN博客</a></p>
+<h3 id="sever"><a href="#sever" class="headerlink" title="sever"></a>sever</h3><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dvd_sun/article/details/124531184">TigerVNC安装使用__dwSun_的博客-CSDN博客</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tigervnc-standalone-server</span><br></pre></td></tr></table></figure>
 
 <p>其配置文件存储在 <strong>~&#x2F;.vnc</strong> 目录下，所以下面看到的所有配置，都没有以 sudo 执行</p>
@@ -106,19 +107,17 @@
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\#!/bin/sh   PATH=/bin:/sbin:/usr/bin:/usr/sbin   unset SESSION_MANAGER   unset DBUS_SESSION_BUS_ADDRESS   exec /usr/bin/gnome-session &amp;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x ~/.vnc/xstartup</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver :1 -name ldlsldls3 -depth 24 -geometry 1280x720 -localhost no </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver :2 -name ldlsldls3 -depth 16 -geometry 768x1024 -localhost no </span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -depth 24 -geometry 1280x720 -localhost no </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -depth 24 -geometry 1280x720 -localhost no</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -list</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -kill :1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -kill :2</span><br></pre></td></tr></table></figure>
 
 <p>这里的参数意义：</p>
 <ul>
@@ -131,7 +130,8 @@
 <p>在 VNC Server 处填写服务器地址和端口，如想要连接 38 服务器，编号 3 的 VNC Server，填写：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.38:5903</span><br><span class="line"></span><br><span class="line">ldlsldls3:1</span><br><span class="line">// ldlsldls3 为主机名，可以替换为 IP 地址</span><br><span class="line">// 1 为启动 vncserver 服务时，命令行里跟的编号</span><br></pre></td></tr></table></figure>
 
-
+<p>开机启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gnome-session-properties</span><br><span class="line">vncserver :2 -name ldlsldls3 -depth 16 -geometry 768x1024 -localhost no</span><br></pre></td></tr></table></figure>
 
 
 
@@ -565,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" data-id="clm6jxdwk0000hwuceswfacbf" data-title="ubuntu-sudo命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" data-id="clm6td2ew00007gucco6r6sfz" data-title="ubuntu-sudo命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
