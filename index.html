@@ -102,6 +102,10 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure>
 
 <p>编辑 <strong>~&#x2F;.vnc&#x2F;xstartup</strong> 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span><br><span class="line"></span><br><span class="line">[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span><br><span class="line"></span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line"></span><br><span class="line">dbus-launch --exit-with-session gnome-session &amp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\#!/bin/sh   PATH=/bin:/sbin:/usr/bin:/usr/sbin   unset SESSION_MANAGER   unset DBUS_SESSION_BUS_ADDRESS   exec /usr/bin/gnome-session &amp;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x ~/.vnc/xstartup</span><br></pre></td></tr></table></figure>
@@ -143,7 +147,7 @@
 
 
 <h6 id="换软件源"><a href="#换软件源" class="headerlink" title="换软件源"></a>换软件源</h6><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11YgAWt2">https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11YgAWt2</a><br><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/ubuntu.html">http://mirrors.ustc.edu.cn/help/ubuntu.html</a><br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt --fix-broken install</span><br><span class="line">sudo apt autoremove</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade -y</span><br><span class="line">sudo apt --fix-broken install</span><br><span class="line">sudo apt autoremove</span><br></pre></td></tr></table></figure>
 
 
 
@@ -561,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" data-id="clm6evbqh0000rsucbrnrd3v4" data-title="ubuntu-sudo命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" data-id="clm6jxdwk0000hwuceswfacbf" data-title="ubuntu-sudo命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
