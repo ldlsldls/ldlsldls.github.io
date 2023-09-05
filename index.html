@@ -95,13 +95,44 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>下载安装包，选择对应的安装包类型： <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/realvnc-vnc-server">https://aur.archlinux.org/packages/realvnc-vnc-server</a></p>
-<p>以下是x86_64版本：</p>
-<p>sudo wget <a target="_blank" rel="noopener" href="https://www.realvnc.com/download/file/vnc.files/VNC-Server-6.11.0-Linux-x64.deb">https://www.realvnc.com/download/file/vnc.files/VNC-Server-6.11.0-Linux-x64.deb</a><br>2、安装：</p>
-<p>sudo apt install .&#x2F;VNC-Server-6.11.0-Linux-x64.deb<br>3、注册license:</p>
-<p>vnclicense -add 3TH6P-DV5AE-BLHY6-PNENS-B3AQA<br>4、添加服务：</p>
-<p>sudo systemctl daemon-reload<br>sudo systemctl enable vncserver-x11-serviced.service</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiexijihe945/article/details/126222983">Ubuntu18.04~Ubuntu22.04安装并配置VNC_ubuntu vnc_洛克希德马丁的博客-CSDN博客</a></p>
+        <h3 id="sever"><a href="#sever" class="headerlink" title="sever"></a>sever</h3><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dvd_sun/article/details/124531184">TigerVNC安装使用__dwSun_的博客-CSDN博客</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tigervnc-standalone-server</span><br></pre></td></tr></table></figure>
+
+<p>其配置文件存储在 <strong>~&#x2F;.vnc</strong> 目录下，所以下面看到的所有配置，都没有以 sudo 执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure>
+
+<p>编辑 <strong>~&#x2F;.vnc&#x2F;xstartup</strong> 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\#!/bin/sh   PATH=/bin:/sbin:/usr/bin:/usr/sbin   unset SESSION_MANAGER   unset DBUS_SESSION_BUS_ADDRESS   exec /usr/bin/gnome-session &amp;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x ~/.vnc/xstartup</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver :1 -name ldlsldls3 -depth 24 -geometry 1280x720 -localhost no </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -depth 24 -geometry 1280x720 -localhost no </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -kill :1</span><br></pre></td></tr></table></figure>
+
+<p>这里的参数意义：</p>
+<ul>
+<li>depth，使用的色彩，一般不需要设置，如果带宽非常低，可以使用 8&#x2F;16 等值来设置比较低的色彩配置，降低数据量，减少带宽使用</li>
+<li>geometry，连接后的分辨率，按照需要设置即可</li>
+<li>localhost，由于 vnc 本身并不使用安全连接，所以默认只能在 127.0.0.1 地址上进行访问，但这就没有任何意义了，所以指定该参数为 no，保证远程可以访问</li>
+<li>name</li>
+<li>:1 这里是 vnc 比较有趣的一个地方，因为 vnc 的本意就是让多个使用者(这里指远程 GUI 界面的用户，区别于 Linux 系统的用户)同时使用 GUI 界面，而且是同一个用户，可以提供多个使用者远程使用。那么如何区分这些使用者，就成了一个问题。VNC 协议给出的解决方案是，给每一个使用者一个编号，并根据编号分配给使用者一个端口进行连接，从 5901 开始，例如上述命令代表在 5901 端口起动了编号1的 vncserver，换成:2 则是在 5902 端口起动了编号为 2 的 vncserver。</li>
+</ul>
+<p>在 VNC Server 处填写服务器地址和端口，如想要连接 38 服务器，编号 3 的 VNC Server，填写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.38:5903</span><br><span class="line"></span><br><span class="line">ldlsldls3:1</span><br><span class="line">// ldlsldls3 为主机名，可以替换为 IP 地址</span><br><span class="line">// 1 为启动 vncserver 服务时，命令行里跟的编号</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h3 id="v01-Linux环境搭建"><a href="#v01-Linux环境搭建" class="headerlink" title="v01_Linux环境搭建"></a>v01_Linux环境搭建</h3><p>ubuntu18</p>
 <h6 id="Linux基本操作"><a href="#Linux基本操作" class="headerlink" title="Linux基本操作"></a>Linux基本操作</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">sudo [name]</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line"></span><br><span class="line">Ctrl + Z   # 暂停命令</span><br><span class="line">jobs       # 查看作业列表</span><br><span class="line">[1]+  Stopped    tail -n 100</span><br><span class="line">kill %1    # 终止作业</span><br><span class="line"></span><br><span class="line">pwd</span><br><span class="line">ll</span><br><span class="line">ls</span><br><span class="line">ls | grep -q autoconf.sh &amp;&amp; echo &quot;exist&quot; || echo &quot;not exist&quot;</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">cd [name]</span><br><span class="line">cd ..</span><br><span class="line">cd /</span><br><span class="line">cd ~</span><br><span class="line">cd /home</span><br><span class="line"></span><br><span class="line">chmod 777 [filename]</span><br><span class="line"></span><br><span class="line">sudo apt-get install xclip</span><br><span class="line"></span><br><span class="line"># 十条命令复制到剪切板</span><br><span class="line">history | tail -n 10 | head -n 9 | awk &#x27;&#123;$1=&quot;&quot;; sub(&quot;^ &quot;, &quot;&quot;); print $0&#125;&#x27; | xclip -selection clipboard</span><br><span class="line"></span><br><span class="line"># 全部命令及其结果复制到剪切板</span><br><span class="line">a + h</span><br></pre></td></tr></table></figure>
 
@@ -530,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" data-id="clm599qc500005ouce76b5bsw" data-title="ubuntu-sudo命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" data-id="clm6evbqh0000rsucbrnrd3v4" data-title="ubuntu-sudo命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
