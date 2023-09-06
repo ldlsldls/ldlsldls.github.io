@@ -1,109 +1,284 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ldlsldls">
+  <meta name="keywords" content="">
   
-  <title>ubuntu-sudo命令 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="挂载 1234567891011sudo fdisk -lsudo blkid&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE&#x3D;&quot;ext4&quot; PARTLABEL&#x3D;&quot;sata2&quot; PARTUUID&#x3D;&quot;6bfaee0e-9991-4ff2-aca7-fb36b14">
+    <meta name="description" content="挂载 1234567891011sudo fdisk -lsudo blkid&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE&#x3D;&quot;ext4&quot; PARTLABEL&#x3D;&quot;sata2&quot; PARTUUID&#x3D;&quot;6bfaee0e-9991-4ff2-aca7-fb36b14">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu-sudo命令">
 <meta property="og:url" content="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="挂载 1234567891011sudo fdisk -lsudo blkid&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE&#x3D;&quot;ext4&quot; PARTLABEL&#x3D;&quot;sata2&quot; PARTUUID&#x3D;&quot;6bfaee0e-9991-4ff2-aca7-fb36b14">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-04T19:07:56.000Z">
 <meta property="article:modified_time" content="2023-09-06T06:50:36.770Z">
 <meta property="article:author" content="ldlsldls">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<meta name="twitter:card" content="summary_large_image">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
   
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <title>ubuntu-sudo命令 - Hexo</title>
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
   
 <meta name="generator" content="Hexo 6.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ubuntu-sudo命令"></span>
+          
+        </div>
+
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-09-05 03:07" pubdate>
+          2023年9月5日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          17k 字
         
-      </nav>
-      <nav id="sub-nav">
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+          139 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-ubuntu-sudo命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2023-09-04T19:07:56.000Z" itemprop="datePublished">2023-09-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      ubuntu-sudo命令
-    </h1>
-  
+</div>
 
-      </header>
+  </header>
+
+  <main>
     
-    <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>挂载</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br><span class="line"></span><br><span class="line">sudo blkid</span><br><span class="line"></span><br><span class="line">/dev/sda1: UUID=&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE=&quot;ext4&quot; PARTLABEL=&quot;sata2&quot; PARTUUID=&quot;6bfaee0e-9991-4ff2-aca7-fb36b14c008c&quot;</span><br><span class="line"></span><br><span class="line">sudo mkdir /home/mount</span><br><span class="line"></span><br><span class="line">sudo mount /dev/sda1 /home/mount</span><br><span class="line"></span><br><span class="line">sudo umount /home/mount</span><br></pre></td></tr></table></figure>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ubuntu-sudo命令</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>挂载</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo fdisk -l<br><br>sudo blkid<br><br><span class="hljs-regexp">/dev/</span>sda1: UUID=<span class="hljs-string">&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot;</span> TYPE=<span class="hljs-string">&quot;ext4&quot;</span> PARTLABEL=<span class="hljs-string">&quot;sata2&quot;</span> PARTUUID=<span class="hljs-string">&quot;6bfaee0e-9991-4ff2-aca7-fb36b14c008c&quot;</span><br><br>sudo mkdir <span class="hljs-regexp">/home/m</span>ount<br><br>sudo mount <span class="hljs-regexp">/dev/</span>sda1 <span class="hljs-regexp">/home/m</span>ount<br><br>sudo umount <span class="hljs-regexp">/home/m</span>ount<br></code></pre></td></tr></table></figure>
 
 
 
 <p>权限</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls -ld /home/mount</span><br><span class="line"></span><br><span class="line">sudo vim /etc/fstab</span><br><span class="line"></span><br><span class="line">UUID=xxx /mnt/disk1 ext4 auto,user,rw 0 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">ls -ld <span class="hljs-regexp">/home/m</span>ount<br><br>sudo vim <span class="hljs-regexp">/etc/</span>fstab<br><br>UUID=xxx <span class="hljs-regexp">/mnt/</span>disk1 ext4 auto,user,rw <span class="hljs-number">0</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
 
 
@@ -112,39 +287,39 @@
 
 
 <p><a target="_blank" rel="noopener" href="https://rustdesk.com/docs/en/self-host/rustdesk-server-oss/install/">安装 ：： RustDesk 的文档</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">3.配置VCN-Server</span><br><span class="line">创建并添加xstartup文件到/etc/vnc/xstartup（这步一定要做）</span><br><span class="line">sudo mkdir /etc/vnc #创建VNC目录</span><br><span class="line">sudo nano /etc/vnc/xstartup #创建并编辑xstartup文件</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">向/etc/vnc/xstartup文件中添加下面的内容（Ctrl+O-&gt;Enter-&gt;Ctrl+X保存文件）</span><br><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">test x&quot;$SHELL&quot; = x&quot;&quot; &amp;&amp; SHELL=/bin/bash</span><br><span class="line">test x&quot;$1&quot;     = x&quot;&quot; &amp;&amp; set -- default</span><br><span class="line"></span><br><span class="line">unset SESSION_MANAGER</span><br><span class="line">unset DBUS_SESSION_BUS_ADDRESS</span><br><span class="line"></span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line">&quot;$SHELL&quot; -l &lt;&lt; EOF</span><br><span class="line">export XDG_SESSION_TYPE=x11</span><br><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">dbus-launch --exit-with-session gnome-session --session=ubuntu</span><br><span class="line">EOF</span><br><span class="line">vncserver -kill $DISPLAY</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">使用xface桌面的添加下面的内容</span><br><span class="line"></span><br><span class="line">#!/bin/sh</span><br><span class="line"># Start up the standard system desktop</span><br><span class="line">unset SESSION_MANAGER</span><br><span class="line">unset DBUS_SESSION_BUS_ADDRESS</span><br><span class="line">/usr/bin/startxfce4</span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span><br><span class="line">[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span><br><span class="line">x-window-manager &amp;</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">设置为可执行文件</span><br><span class="line">sudo chmod +x /etc/vnc/xstartup</span><br><span class="line">1</span><br><span class="line">创建并添加xstartup文件到~/.vnc/xstartup（区别于上一步，这步也要做）</span><br><span class="line">sudo nano ~/.vnc/xstartup #创建并编辑xstartup文件</span><br><span class="line">1</span><br><span class="line">向~/.vnc/xstartup文件中添加下面的内容（Ctrl+O-&gt;Enter-&gt;Ctrl+X保存文件）</span><br><span class="line">#!/bin/sh</span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span><br><span class="line">[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">设置为可执行文件</span><br><span class="line">sudo chmod a+x ~/.vnc/xstartup</span><br><span class="line">1</span><br><span class="line">启动VCN-Server</span><br><span class="line">sudo vncserver :1 -geometry 1920x1080 -depth 24 -localhost no</span><br><span class="line">1</span><br><span class="line">注：-localhost no参数一定要有，没有的话可能无法正常连接，其余参数就是分辨率之类的了，可自定义参数</span><br><span class="line"></span><br><span class="line">如果输出下面的类似内容则说明服务器端正常运行</span><br><span class="line"></span><br><span class="line">New &#x27;bytexd:1 (edxd)&#x27; desktop at :1 on machine bytexd</span><br><span class="line">Use xtigervncviewer -SecurityTypes VncAuth -passwd /home/edxd/.vnc/passwd :1 to connect to the VNC server.</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">4.连接VNC</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">3</span>.配置VCN-Server<br>创建并添加xstartup文件到<span class="hljs-regexp">/etc/</span>vnc/xstartup（这步一定要做）<br>sudo mkdir <span class="hljs-regexp">/etc/</span>vnc <span class="hljs-comment">#创建VNC目录</span><br>sudo nano <span class="hljs-regexp">/etc/</span>vnc/xstartup <span class="hljs-comment">#创建并编辑xstartup文件</span><br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br>向<span class="hljs-regexp">/etc/</span>vnc/xstartup文件中添加下面的内容（Ctrl+O-&gt;Enter-&gt;Ctrl+X保存文件）<br><span class="hljs-comment">#!/bin/sh</span><br><br>test x<span class="hljs-string">&quot;$SHELL&quot;</span> = x<span class="hljs-string">&quot;&quot;</span> &amp;&amp; SHELL=<span class="hljs-regexp">/bin/</span>bash<br>test x<span class="hljs-string">&quot;$1&quot;</span>     = x<span class="hljs-string">&quot;&quot;</span> &amp;&amp; set -- default<br><br>unset SESSION_MANAGER<br>unset DBUS_SESSION_BUS_ADDRESS<br><br>vncconfig -iconic &amp;<br><span class="hljs-string">&quot;$SHELL&quot;</span> -l &lt;&lt; EOF<br>export XDG_SESSION_TYPE=x11<br>export GNOME_SHELL_SESSION_MODE=ubuntu<br>dbus-launch --<span class="hljs-keyword">exit</span>-with-session gnome-session --session=ubuntu<br>EOF<br>vncserver -kill <span class="hljs-variable">$DISPLAY</span><br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br><span class="hljs-number">4</span><br><span class="hljs-number">5</span><br><span class="hljs-number">6</span><br><span class="hljs-number">7</span><br><span class="hljs-number">8</span><br><span class="hljs-number">9</span><br><span class="hljs-number">10</span><br><span class="hljs-number">11</span><br><span class="hljs-number">12</span><br><span class="hljs-number">13</span><br><span class="hljs-number">14</span><br><span class="hljs-number">15</span><br>使用xface桌面的添加下面的内容<br><br><span class="hljs-comment">#!/bin/sh</span><br><span class="hljs-comment"># Start up the standard system desktop</span><br>unset SESSION_MANAGER<br>unset DBUS_SESSION_BUS_ADDRESS<br><span class="hljs-regexp">/usr/</span>bin/startxfce4<br>[ -x <span class="hljs-regexp">/etc/</span>vnc<span class="hljs-regexp">/xstartup ] &amp;&amp; exec /</span>etc<span class="hljs-regexp">/vnc/</span>xstartup<br>[ -r <span class="hljs-variable">$HOME</span><span class="hljs-regexp">/.Xresources ] &amp;&amp; xrdb $HOME/</span>.Xresources<br>x-window-manager &amp;<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br><span class="hljs-number">4</span><br><span class="hljs-number">5</span><br><span class="hljs-number">6</span><br><span class="hljs-number">7</span><br><span class="hljs-number">8</span><br>设置为可执行文件<br>sudo chmod +x <span class="hljs-regexp">/etc/</span>vnc/xstartup<br><span class="hljs-number">1</span><br>创建并添加xstartup文件到~<span class="hljs-regexp">/.vnc/</span>xstartup（区别于上一步，这步也要做）<br>sudo nano ~<span class="hljs-regexp">/.vnc/</span>xstartup <span class="hljs-comment">#创建并编辑xstartup文件</span><br><span class="hljs-number">1</span><br>向~<span class="hljs-regexp">/.vnc/</span>xstartup文件中添加下面的内容（Ctrl+O-&gt;Enter-&gt;Ctrl+X保存文件）<br><span class="hljs-comment">#!/bin/sh</span><br>[ -x <span class="hljs-regexp">/etc/</span>vnc<span class="hljs-regexp">/xstartup ] &amp;&amp; exec /</span>etc<span class="hljs-regexp">/vnc/</span>xstartup<br>[ -r <span class="hljs-variable">$HOME</span><span class="hljs-regexp">/.Xresources ] &amp;&amp; xrdb $HOME/</span>.Xresources<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br>设置为可执行文件<br>sudo chmod a+x ~<span class="hljs-regexp">/.vnc/</span>xstartup<br><span class="hljs-number">1</span><br>启动VCN-Server<br>sudo vncserver :<span class="hljs-number">1</span> -geometry <span class="hljs-number">1920</span>x1080 -depth <span class="hljs-number">24</span> -localhost no<br><span class="hljs-number">1</span><br>注：-localhost no参数一定要有，没有的话可能无法正常连接，其余参数就是分辨率之类的了，可自定义参数<br><br>如果输出下面的类似内容则说明服务器端正常运行<br><br>New <span class="hljs-string">&#x27;bytexd:1 (edxd)&#x27;</span> desktop at :<span class="hljs-number">1</span> on machine bytexd<br>Use xtigervncviewer -SecurityTypes VncAuth -passwd <span class="hljs-regexp">/home/</span>edxd<span class="hljs-regexp">/.vnc/</span>passwd :<span class="hljs-number">1</span> to connect to the VNC server.<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">4</span>.连接VNC<br><br></code></pre></td></tr></table></figure>
 
 
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">################## 配置二 #################</span><br><span class="line">#!/bin/sh</span><br><span class="line"> </span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span><br><span class="line">[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span><br><span class="line"> </span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line"> </span><br><span class="line">gnome-panel &amp;</span><br><span class="line">gnmoe-settings-daemon &amp;</span><br><span class="line">metacity &amp;</span><br><span class="line">nautilus &amp;</span><br><span class="line">gnome-terminal &amp;</span><br><span class="line">###################################</span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs clean">################## 配置二 #################<br>#!/bin/sh<br> <br>[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup<br>[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources<br> <br>xsetroot -solid grey<br>vncconfig -iconic &amp;<br> <br>gnome-panel &amp;<br>gnmoe-settings-daemon &amp;<br>metacity &amp;<br>nautilus &amp;<br>gnome-terminal &amp;<br>###################################<br></code></pre></td></tr></table></figure>
 
 
 
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qxqxqzzz/article/details/103974974">Ubuntu VNC 安装&#x2F;使用&#x2F;故障解决 看这一篇就够了_城俊BLOG的博客-CSDN博客</a></p>
 <h3 id="sever"><a href="#sever" class="headerlink" title="sever"></a>sever</h3><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dvd_sun/article/details/124531184">TigerVNC安装使用__dwSun_的博客-CSDN博客</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tigervnc-standalone-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">sudo apt install tigervnc-standalone-<span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure>
 
 <p>其配置文件存储在 <strong>~&#x2F;.vnc</strong> 目录下，所以下面看到的所有配置，都没有以 sudo 执行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">vncpasswd</span><br></code></pre></td></tr></table></figure>
 
 <p>编辑 <strong>~&#x2F;.vnc&#x2F;xstartup</strong> 文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</span><br><span class="line"></span><br><span class="line">[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</span><br><span class="line"></span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line"></span><br><span class="line">dbus-launch --exit-with-session gnome-session &amp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#!/bin/sh</span><br><br>[ -x <span class="hljs-regexp">/etc/</span>vnc<span class="hljs-regexp">/xstartup ] &amp;&amp; exec /</span>etc<span class="hljs-regexp">/vnc/</span>xstartup<br><br>[ -r <span class="hljs-variable">$HOME</span><span class="hljs-regexp">/.Xresources ] &amp;&amp; xrdb $HOME/</span>.Xresources<br><br>vncconfig -iconic &amp;<br><br>dbus-launch --<span class="hljs-keyword">exit</span>-with-session gnome-session &amp;<br><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x ~/.vnc/xstartup</span><br></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">chmod a+x ~<span class="hljs-regexp">/.vnc/</span>xstartup<br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver :2 -name ldlsldls3 -depth 16 -geometry 768x1024 -localhost no </span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">vncserver</span> :<span class="hljs-number">2</span> -name ldlsldls3 -depth <span class="hljs-number">16</span> -geometry <span class="hljs-number">768</span>x1024 -localhost no <br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -depth 24 -geometry 1280x720 -localhost no</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">vncserver</span> -depth <span class="hljs-number">24</span> -geometry <span class="hljs-number">1280</span>x720 -localhost no<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -list</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">vncserver -list</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -kill :2</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">vncserver</span> -kill :<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
 
 <p>这里的参数意义：</p>
 <ul>
@@ -155,62 +330,62 @@
 <li>:1 这里是 vnc 比较有趣的一个地方，因为 vnc 的本意就是让多个使用者(这里指远程 GUI 界面的用户，区别于 Linux 系统的用户)同时使用 GUI 界面，而且是同一个用户，可以提供多个使用者远程使用。那么如何区分这些使用者，就成了一个问题。VNC 协议给出的解决方案是，给每一个使用者一个编号，并根据编号分配给使用者一个端口进行连接，从 5901 开始，例如上述命令代表在 5901 端口起动了编号1的 vncserver，换成:2 则是在 5902 端口起动了编号为 2 的 vncserver。</li>
 </ul>
 <p>在 VNC Server 处填写服务器地址和端口，如想要连接 38 服务器，编号 3 的 VNC Server，填写：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.38:5903</span><br><span class="line"></span><br><span class="line">ldlsldls3:1</span><br><span class="line">// ldlsldls3 为主机名，可以替换为 IP 地址</span><br><span class="line">// 1 为启动 vncserver 服务时，命令行里跟的编号</span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">192.168.1.38:5903</span><br><br>ldlsldls3:<span class="hljs-number">1</span><br>// ldlsldls3 为主机名，可以替换为 IP 地址<br>// <span class="hljs-number">1</span> 为启动 vncserver 服务时，命令行里跟的编号<br></code></pre></td></tr></table></figure>
 
 <p>开机启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gnome-session-properties</span><br><span class="line">vncserver :2 -name ldlsldls3 -depth 16 -geometry 768x1024 -localhost no</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">gnome</span>-session-properties<br><span class="hljs-attribute">vncserver</span> :<span class="hljs-number">2</span> -name ldlsldls3 -depth <span class="hljs-number">16</span> -geometry <span class="hljs-number">768</span>x1024 -localhost no<br></code></pre></td></tr></table></figure>
 
 
 
 
 
 <h3 id="v01-Linux环境搭建"><a href="#v01-Linux环境搭建" class="headerlink" title="v01_Linux环境搭建"></a>v01_Linux环境搭建</h3><p>ubuntu18</p>
-<h6 id="Linux基本操作"><a href="#Linux基本操作" class="headerlink" title="Linux基本操作"></a>Linux基本操作</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">sudo [name]</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line"></span><br><span class="line">Ctrl + Z   # 暂停命令</span><br><span class="line">jobs       # 查看作业列表</span><br><span class="line">[1]+  Stopped    tail -n 100</span><br><span class="line">kill %1    # 终止作业</span><br><span class="line"></span><br><span class="line">pwd</span><br><span class="line">ll</span><br><span class="line">ls</span><br><span class="line">ls | grep -q autoconf.sh &amp;&amp; echo &quot;exist&quot; || echo &quot;not exist&quot;</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">cd [name]</span><br><span class="line">cd ..</span><br><span class="line">cd /</span><br><span class="line">cd ~</span><br><span class="line">cd /home</span><br><span class="line"></span><br><span class="line">chmod 777 [filename]</span><br><span class="line"></span><br><span class="line">sudo apt-get install xclip</span><br><span class="line"></span><br><span class="line"># 十条命令复制到剪切板</span><br><span class="line">history | tail -n 10 | head -n 9 | awk &#x27;&#123;$1=&quot;&quot;; sub(&quot;^ &quot;, &quot;&quot;); print $0&#125;&#x27; | xclip -selection clipboard</span><br><span class="line"></span><br><span class="line"># 全部命令及其结果复制到剪切板</span><br><span class="line">a + h</span><br></pre></td></tr></table></figure>
+<h6 id="Linux基本操作"><a href="#Linux基本操作" class="headerlink" title="Linux基本操作"></a>Linux基本操作</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo [name]<br><br>clear<br><br>Ctrl + Z   <span class="hljs-comment"># 暂停命令</span><br><span class="hljs-built_in">jobs</span>       <span class="hljs-comment"># 查看作业列表</span><br>[1]+  Stopped    <span class="hljs-built_in">tail</span> -n 100<br><span class="hljs-built_in">kill</span> %1    <span class="hljs-comment"># 终止作业</span><br><br><span class="hljs-built_in">pwd</span><br>ll<br><span class="hljs-built_in">ls</span><br><span class="hljs-built_in">ls</span> | grep -q autoconf.sh &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exist&quot;</span> || <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;not exist&quot;</span><br>tree<br><br><span class="hljs-built_in">cd</span> [name]<br><span class="hljs-built_in">cd</span> ..<br><span class="hljs-built_in">cd</span> /<br><span class="hljs-built_in">cd</span> ~<br><span class="hljs-built_in">cd</span> /home<br><br><span class="hljs-built_in">chmod</span> 777 [filename]<br><br>sudo apt-get install xclip<br><br><span class="hljs-comment"># 十条命令复制到剪切板</span><br><span class="hljs-built_in">history</span> | <span class="hljs-built_in">tail</span> -n 10 | <span class="hljs-built_in">head</span> -n 9 | awk <span class="hljs-string">&#x27;&#123;$1=&quot;&quot;; sub(&quot;^ &quot;, &quot;&quot;); print $0&#125;&#x27;</span> | xclip -selection clipboard<br><br><span class="hljs-comment"># 全部命令及其结果复制到剪切板</span><br>a + h<br></code></pre></td></tr></table></figure>
 
 
 
-<h6 id="改root密码"><a href="#改root密码" class="headerlink" title="改root密码"></a>改root密码</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br><span class="line">su root</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h6 id="改root密码"><a href="#改root密码" class="headerlink" title="改root密码"></a>改root密码</h6><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo passwd root<br>su root<br><span class="hljs-keyword">exit</span><br></code></pre></td></tr></table></figure>
 
 
 
 <h6 id="换软件源"><a href="#换软件源" class="headerlink" title="换软件源"></a>换软件源</h6><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11YgAWt2">https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11YgAWt2</a><br><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/ubuntu.html">http://mirrors.ustc.edu.cn/help/ubuntu.html</a><br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade -y</span><br><span class="line">sudo apt --fix-broken install</span><br><span class="line">sudo apt autoremove</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo vi /etc/apt/sources.list<br><br>sudo apt-<span class="hljs-built_in">get</span> update<br>sudo apt-<span class="hljs-built_in">get</span><span class="hljs-built_in"> upgrade </span>-y<br>sudo apt --fix-broken install<br>sudo apt autoremove<br></code></pre></td></tr></table></figure>
 
 
 
-<h6 id="安装基本的软件包"><a href="#安装基本的软件包" class="headerlink" title="安装基本的软件包"></a>安装基本的软件包</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install aptitude gparted make git gcc g++ gdb curl unzip tree xclip</span><br></pre></td></tr></table></figure>
+<h6 id="安装基本的软件包"><a href="#安装基本的软件包" class="headerlink" title="安装基本的软件包"></a>安装基本的软件包</h6><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">sudo apt install aptitude gparted make git gcc g</span><span class="hljs-literal">++</span> <span class="hljs-comment">gdb curl unzip tree xclip</span><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /home</span><br><span class="line">sudo mkdir program_777</span><br><span class="line">sudo mkdir program_700</span><br><span class="line">sudo chmod 777 program_777/</span><br><span class="line">sudo chmod 700 program_700</span><br><span class="line">sudo mkdir download</span><br><span class="line">git config --global --add safe.directory /home/download/[git_project]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home<br>sudo <span class="hljs-built_in">mkdir</span> program_777<br>sudo <span class="hljs-built_in">mkdir</span> program_700<br>sudo <span class="hljs-built_in">chmod</span> 777 program_777/<br>sudo <span class="hljs-built_in">chmod</span> 700 program_700<br>sudo <span class="hljs-built_in">mkdir</span> download<br>git config --global --add safe.directory /home/download/[git_project]<br></code></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="v02-软件安装"><a href="#v02-软件安装" class="headerlink" title="v02_软件安装"></a>v02_软件安装</h3><h6 id="下载iverilog源码"><a href="#下载iverilog源码" class="headerlink" title="下载iverilog源码"></a>下载iverilog源码</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/steveicarus/iverilog.git</span><br></pre></td></tr></table></figure>
+<h3 id="v02-软件安装"><a href="#v02-软件安装" class="headerlink" title="v02_软件安装"></a>v02_软件安装</h3><h6 id="下载iverilog源码"><a href="#下载iverilog源码" class="headerlink" title="下载iverilog源码"></a>下载iverilog源码</h6><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/steveicarus/i</span>verilog.git<br></code></pre></td></tr></table></figure>
 
 <p>切换到v11分支(必须用V11或以上的版本)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd iverilog</span><br><span class="line">git config --global --add safe.directory /home/download/iverilog</span><br><span class="line">git checkout v11-branch</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> iverilog<br>git config <span class="hljs-params">--global</span> <span class="hljs-params">--add</span> safe.directory <span class="hljs-string">/home/download/iverilog</span><br>git checkout v11-branch<br></code></pre></td></tr></table></figure>
 
 <p>安装依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install autoconf gperf flex bison build-essential</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">sudo apt-get <span class="hljs-keyword">install </span>autoconf gperf flex <span class="hljs-keyword">bison </span><span class="hljs-keyword">build-essential</span><br></code></pre></td></tr></table></figure>
 
 <p>编译、安装iverilog和vvp</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh autoconf.sh</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">sh</span> autoconf.<span class="hljs-keyword">sh</span><br>./configure<br><span class="hljs-keyword">make</span><br><span class="hljs-keyword">make</span> install<br></code></pre></td></tr></table></figure>
 
 <p>创建python软链接<br>sudo ln -s &#x2F;usr&#x2F;bin&#x2F;python3.8 &#x2F;usr&#x2F;bin&#x2F;python</p>
 <p>其中&#x2F;usr&#x2F;bin&#x2F;python3.8对应你实际安装的python版本。</p>
 <p>安装gtkwave<br>sudo apt-get install gtkwave</p>
 <h2 id="v01-创建虚拟机"><a href="#v01-创建虚拟机" class="headerlink" title="v01_创建虚拟机"></a>v01_创建虚拟机</h2><p><a target="_blank" rel="noopener" href="https://vlab.ustc.edu.cn/">https://vlab.ustc.edu.cn/</a></p>
 <p>&#x2F;&#x2F;虚拟机信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ldl3</span><br><span class="line">虚拟机 ID</span><br><span class="line">6026</span><br><span class="line">内存占用</span><br><span class="line">409.3 MB / 4096.0 MB</span><br><span class="line">启动时间</span><br><span class="line">0 days, 0 hours, 20 minutes, 12 seconds</span><br><span class="line">登录端口（推荐）</span><br><span class="line">ssh -i vlab-vm6026.pem root@vlab.ustc.edu.cn</span><br><span class="line">登录端口（交互式）</span><br><span class="line">ssh root@vlab.ustc.edu.cn</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs stylus">ldl3<br>虚拟机 ID<br><span class="hljs-number">6026</span><br>内存占用<br><span class="hljs-number">409.3</span> MB / <span class="hljs-number">4096.0</span> MB<br>启动时间<br><span class="hljs-number">0</span> days, <span class="hljs-number">0</span> hours, <span class="hljs-number">20</span> minutes, <span class="hljs-number">12</span> seconds<br>登录端口（推荐）<br>ssh -<span class="hljs-selector-tag">i</span> vlab-vm6026<span class="hljs-selector-class">.pem</span> root@vlab<span class="hljs-selector-class">.ustc</span><span class="hljs-selector-class">.edu</span><span class="hljs-selector-class">.cn</span><br>登录端口（交互式）<br>ssh root@vlab<span class="hljs-selector-class">.ustc</span><span class="hljs-selector-class">.edu</span><span class="hljs-selector-class">.cn</span><br><br><br></code></pre></td></tr></table></figure>
 
 
 
 <p>&#x2F;&#x2F;tigervnc远程桌面软件</p>
 <p>&#x2F;&#x2F;查看CPU信息<br>lscpu</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">架构：                           x86_64</span><br><span class="line">CPU 运行模式：                   32-bit, 64-bit</span><br><span class="line">字节序：                         Little Endian</span><br><span class="line">Address sizes:                   46 bits physical, 48 bits virtual</span><br><span class="line">CPU:                             32</span><br><span class="line">在线 CPU 列表：                  1,28</span><br><span class="line">离线 CPU 列表：                  0,2-27,29-31</span><br><span class="line">每个核的线程数：                 0</span><br><span class="line">每个座的核数：                   8</span><br><span class="line">座：                             2</span><br><span class="line">NUMA 节点：                      2</span><br><span class="line">厂商 ID：                        GenuineIntel</span><br><span class="line">CPU 系列：                       6</span><br><span class="line">型号：                           85</span><br><span class="line">型号名称：                       Intel(R) Xeon(R) Silver 4110 CPU @ 2.10GHz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">架构：                           x86_64<br><span class="hljs-meta">CPU</span> 运行模式：                   <span class="hljs-number">32</span>-bit, <span class="hljs-number">64</span>-bit<br>字节序：                         Little Endian<br>Address sizes:                   <span class="hljs-number">46</span> <span class="hljs-meta">bits</span> physical, <span class="hljs-number">48</span> <span class="hljs-meta">bits</span> virtual<br><span class="hljs-symbol">CPU:</span>                             <span class="hljs-number">32</span><br>在线 <span class="hljs-meta">CPU</span> 列表：                  <span class="hljs-number">1</span>,<span class="hljs-number">28</span><br>离线 <span class="hljs-meta">CPU</span> 列表：                  <span class="hljs-number">0</span>,<span class="hljs-number">2</span>-<span class="hljs-number">27</span>,<span class="hljs-number">29</span>-<span class="hljs-number">31</span><br>每个核的线程数：                 <span class="hljs-number">0</span><br>每个座的核数：                   <span class="hljs-number">8</span><br>座：                             <span class="hljs-number">2</span><br>NUMA 节点：                      <span class="hljs-number">2</span><br>厂商 ID：                        GenuineIntel<br><span class="hljs-meta">CPU</span> 系列：                       <span class="hljs-number">6</span><br>型号：                           <span class="hljs-number">85</span><br>型号名称：                       Intel(R) Xeon(R) Silver <span class="hljs-number">4110</span> <span class="hljs-meta">CPU</span> @ <span class="hljs-number">2.</span>10GHz<br><br></code></pre></td></tr></table></figure>
 
 <p>cat &#x2F;proc&#x2F;cpuinfo |grep processor |wc -l</p>
 <p>CPU核数2</p>
@@ -220,18 +395,18 @@
 <p>grep MemTotal &#x2F;proc&#x2F;meminfo</p>
 <p>MemTotal:        4194304 kB</p>
 <p>cat &#x2F;proc&#x2F;meminfo</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MemTotal:        4194304 kB</span><br><span class="line">MemFree:         2635668 kB</span><br><span class="line">MemAvailable:    3738728 kB</span><br><span class="line">Buffers:               0 kB</span><br><span class="line">Cached:          1103060 kB</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">MemTotal</span>:        <span class="hljs-number">4194304</span> kB<br><span class="hljs-attribute">MemFree</span>:         <span class="hljs-number">2635668</span> kB<br><span class="hljs-attribute">MemAvailable</span>:    <span class="hljs-number">3738728</span> kB<br><span class="hljs-attribute">Buffers</span>:               <span class="hljs-number">0</span> kB<br><span class="hljs-attribute">Cached</span>:          <span class="hljs-number">1103060</span> kB<br><br></code></pre></td></tr></table></figure>
 
 
 
 <p>&#x2F;&#x2F;查看硬盘</p>
 <p>lsblk</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda      8:0    0 447.1G  0 disk </span><br><span class="line">\u251c\u2500sda1   8:1        512M  0 part </span><br><span class="line">\u2514\u2500sda2   8:2    0 446.6G  0 part </span><br><span class="line">sdb      8:16   0 447.1G  0 disk </span><br><span class="line">\u251c\u2500sdb1   8:17       512M  0 part </span><br><span class="line">\u2514\u2500sdb2   8:18   0 446.6G  0 part </span><br><span class="line">sdd      8:48   0  65.6T  0 disk </span><br><span class="line">sde      8:64   0 931.3G  0 disk </span><br><span class="line">sdf      8:80   0   952M  0 disk </span><br><span class="line">sr0     11:0    1   968M  0 rom </span><br></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs tap">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT<br>sda      8:0   <span class="hljs-number"> 0 </span>447.1G <span class="hljs-number"> 0 </span>disk <br>\u251c\u2500sda1   8:1        512M <span class="hljs-number"> 0 </span>part <br>\u2514\u2500sda2   8:2   <span class="hljs-number"> 0 </span>446.6G <span class="hljs-number"> 0 </span>part <br>sdb      8:16  <span class="hljs-number"> 0 </span>447.1G <span class="hljs-number"> 0 </span>disk <br>\u251c\u2500sdb1   8:17       512M <span class="hljs-number"> 0 </span>part <br>\u2514\u2500sdb2   8:18  <span class="hljs-number"> 0 </span>446.6G <span class="hljs-number"> 0 </span>part <br>sdd      8:48  <span class="hljs-number"> 0 </span> 65.6T <span class="hljs-number"> 0 </span>disk <br>sde      8:64  <span class="hljs-number"> 0 </span>931.3G <span class="hljs-number"> 0 </span>disk <br>sdf      8:80  <span class="hljs-number"> 0 </span>  952M <span class="hljs-number"> 0 </span>disk <br>sr0     11:0   <span class="hljs-number"> 1 </span>  968M <span class="hljs-number"> 0 </span>rom <br></code></pre></td></tr></table></figure>
 
 <p>fdisk -l</p>
 <p>&#x2F;&#x2F;查看网卡</p>
 <p>lshw -c network</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">*-network</span><br><span class="line">     description: Ethernet interface</span><br><span class="line">     physical id: 3</span><br><span class="line">     logical name: eth0</span><br><span class="line">     serial: b6:21:44:09:fb:e2</span><br><span class="line">     size: 10Gbit/s</span><br><span class="line">     capabilities: ethernet physical</span><br><span class="line">     configuration: autonegotiation=off broadcast=yes driver=veth driverversion=1.0 duplex=full ip=172.31.76.102 link=yes multicast=yes port=twisted pair speed=10Gbit/s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros">*-network<br>     description:<span class="hljs-built_in"> Ethernet interface</span><br><span class="hljs-built_in"></span>     physical id: 3<br>     logical name: eth0<br>     serial: b6:21:44:09:fb:e2<br>     size: 10Gbit/s<br>     capabilities:<span class="hljs-built_in"> ethernet </span>physical<br>     configuration: <span class="hljs-attribute">autonegotiation</span>=off <span class="hljs-attribute">broadcast</span>=<span class="hljs-literal">yes</span> <span class="hljs-attribute">driver</span>=veth <span class="hljs-attribute">driverversion</span>=1.0 <span class="hljs-attribute">duplex</span>=full <span class="hljs-attribute">ip</span>=172.31.76.102 <span class="hljs-attribute">link</span>=<span class="hljs-literal">yes</span> <span class="hljs-attribute">multicast</span>=<span class="hljs-literal">yes</span> <span class="hljs-attribute">port</span>=twisted pair <span class="hljs-attribute">speed</span>=10Gbit/s<br><br></code></pre></td></tr></table></figure>
 
 
 
@@ -241,13 +416,13 @@
 <p>github加速</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://ghproxy.com/">https://ghproxy.com/</a></p>
-<h2 id="v02-初始配置"><a href="#v02-初始配置" class="headerlink" title="v02_初始配置"></a>v02_初始配置</h2><h3 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br><span class="line">su root</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h2 id="v02-初始配置"><a href="#v02-初始配置" class="headerlink" title="v02_初始配置"></a>v02_初始配置</h2><h3 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo passwd root<br>su root<br><span class="hljs-keyword">exit</span><br></code></pre></td></tr></table></figure>
 
 
 
 <h3 id="换软件源-1"><a href="#换软件源-1" class="headerlink" title="换软件源"></a>换软件源</h3><p><a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11YgAWt2">https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11YgAWt2</a><br><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/ubuntu.html">http://mirrors.ustc.edu.cn/help/ubuntu.html</a><br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shell</span><br><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">vi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">shell</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt --fix-broken install</span><br><span class="line">sudo apt autoremove</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">shell</span><br>sudo <span class="hljs-keyword">vi</span> /etc/apt/sources.<span class="hljs-keyword">list</span><br><br><span class="hljs-keyword">vi</span><br><br><br><br><br><span class="hljs-keyword">shell</span><br>sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span><br>sudo apt-<span class="hljs-built_in">get</span> upgrade<br>sudo apt --<span class="hljs-keyword">fix</span>-broken install<br>sudo apt autoremove<br></code></pre></td></tr></table></figure>
 
 
 
@@ -308,11 +483,11 @@
 <p>yes</p>
 <p>然后设置环境变量</p>
 <p>sudo vi ~&#x2F;.bashrc</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export CUDA_HOME=/usr/local/cuda</span><br><span class="line">export LD_LIBRARY_PATH=$&#123;LD_LIBRARY_PATH&#125;:&#123;CUDA_HOME&#125;/lib64</span><br><span class="line">export PATH=$&#123;CUDA_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">CUDA_HOME</span>=/usr/local/cuda<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">LD_LIBRARY_PATH</span>=<span class="hljs-variable">$&#123;LD_LIBRARY_PATH&#125;</span>:&#123;CUDA_HOME&#125;/lib64<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$&#123;CUDA_HOME&#125;</span>/bin:$&#123;PATH&#125;<br></code></pre></td></tr></table></figure>
 
 <p>然后刷新环境变量</p>
 <p>source  ~&#x2F;.bashrc</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">nvcc <span class="hljs-comment">--version</span><br></code></pre></td></tr></table></figure>
 
 <p>有输出cuda11.6</p>
 <blockquote>
@@ -320,11 +495,11 @@
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-download">https://developer.nvidia.com/rdp/cudnn-download</a></p>
 <p>我们下载linux-x86</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf cudnn-linux-x86_64-8.7.0.84_cuda11-archive.tar.xz </span><br><span class="line">sudo cp cudnn-linux-x86_64-8.7.0.84_cuda11-archive/include/cudnn*.h /usr/local/cuda/include</span><br><span class="line">sudo cp -P cudnn-linux-x86_64-8.7.0.84_cuda11-archive/lib/libcudnn* /usr/local/cuda/lib64</span><br><span class="line">sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">tar -xvf cudnn-linux-x86_64-<span class="hljs-number">8.7</span>.<span class="hljs-number">0.84</span>_cuda11-archive.tar.xz <br>sudo cp cudnn-linux-x86_64-<span class="hljs-number">8.7</span>.<span class="hljs-number">0.84</span>_cuda11-archive<span class="hljs-regexp">/include/</span>cudnn*.h <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda/i</span>nclude<br>sudo cp -P cudnn-linux-x86_64-<span class="hljs-number">8.7</span>.<span class="hljs-number">0.84</span>_cuda11-archive<span class="hljs-regexp">/lib/</span>libcudnn* <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda/</span>lib64<br>sudo chmod a+r <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/cuda/i</span>nclude<span class="hljs-regexp">/cudnn*.h /u</span>sr<span class="hljs-regexp">/local/</span>cuda<span class="hljs-regexp">/lib64/</span>libcudnn*<br><br></code></pre></td></tr></table></figure>
 
 <p>cat &#x2F;usr&#x2F;local&#x2F;cuda&#x2F;include&#x2F;cudnn_version.h | grep CUDNN_MAJOR -A 2</p>
 <p>有输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define CUDNN_MAJOR 8</span><br><span class="line">#define CUDNN_MINOR 7</span><br><span class="line">#define CUDNN_PATCHLEVEL 0</span><br><span class="line">--</span><br><span class="line">#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> CUDNN_MAJOR 8</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> CUDNN_MINOR 7</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> CUDNN_PATCHLEVEL 0</span><br>--<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)</span><br><br></code></pre></td></tr></table></figure>
 
 
 
@@ -339,7 +514,7 @@
 <p>yes</p>
 <p><strong>添加环境变量:</strong></p>
 <p>sudo vi ~&#x2F;.bashrc</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/opt/anaconda3/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">export <span class="hljs-title class_">PATH</span>=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/opt/anaconda3/bin</span><br></code></pre></td></tr></table></figure>
 
 <p>source ~&#x2F;.bashrc</p>
 <p>conda</p>
@@ -357,49 +532,49 @@
 <p>xubuntu<br>xfce-look.org</p>
 <p>ubuntu</p>
 <p>gnome</p>
-<h2 id="v03-安装必备软件"><a href="#v03-安装必备软件" class="headerlink" title="v03_安装必备软件"></a>v03_安装必备软件</h2><h3 id="安装必备包"><a href="#安装必备包" class="headerlink" title="安装必备包"></a>安装必备包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install aptitude gparted make git gcc g++ gdb curl unzip</span><br><span class="line">sudo tasksel</span><br><span class="line">sudo apt install aptitude</span><br><span class="line">sudo apt-get install gparted</span><br><span class="line">sudo apt-get install ntfs-3g</span><br><span class="line">sudo apt-get install vim</span><br><span class="line">sudo apt-get install gedit</span><br><span class="line">sudo apt-get install make</span><br><span class="line">sudo apt-get install git</span><br><span class="line">sudo apt-get install gcc g++ gdb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="v03-安装必备软件"><a href="#v03-安装必备软件" class="headerlink" title="v03_安装必备软件"></a>v03_安装必备软件</h2><h3 id="安装必备包"><a href="#安装必备包" class="headerlink" title="安装必备包"></a>安装必备包</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt install aptitude gparted make git gcc g++ gdb curl unzip<br>sudo tasksel<br>sudo apt install aptitude<br>sudo apt-<span class="hljs-built_in">get</span> install gparted<br>sudo apt-<span class="hljs-built_in">get</span> install ntfs-3g<br>sudo apt-<span class="hljs-built_in">get</span> install vim<br>sudo apt-<span class="hljs-built_in">get</span> install gedit<br>sudo apt-<span class="hljs-built_in">get</span> install make<br>sudo apt-<span class="hljs-built_in">get</span> install git<br>sudo apt-<span class="hljs-built_in">get</span> install gcc g++ gdb<br><br></code></pre></td></tr></table></figure>
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fcitx</span><br><span class="line">im-config</span><br><span class="line">智能拼音</span><br><span class="line">log out</span><br></pre></td></tr></table></figure>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fortran">sudo apt install fcitx<br>im-config<br>智能拼音<br><span class="hljs-built_in">log</span> <span class="hljs-keyword">out</span><br></code></pre></td></tr></table></figure>
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove fcitx*</span><br><span class="line">安装ibus框架。</span><br><span class="line">sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4</span><br><span class="line">启用ibus框架。</span><br><span class="line">im-config -s ibus</span><br><span class="line">重启系统或者注销当前账户。</span><br><span class="line">安装相应输入法(以安装拼音输入法为例)。</span><br><span class="line">sudo apt-get install ibus-pinyin</span><br><span class="line">附常见几种输入法</span><br><span class="line">IBus拼音：sudo apt-get install ibus-pinyin</span><br><span class="line">IBUS五笔：sudo apt-get install ibus-table-wubi</span><br><span class="line">谷歌拼音输入法：sudo apt-get install ibus-googlepinyin</span><br><span class="line">Sun拼音输入法：sudo apt-get install ibus-sunpinyin</span><br><span class="line">添加中文输入法，修改输入法切换快捷键。</span><br><span class="line">1.通过ibus-setup 命令设置ibus框架，添加已经安装胡输入法;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-built_in">remove</span> fcitx*<br>安装ibus框架。<br>sudo apt-<span class="hljs-built_in">get</span> install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4<br>启用ibus框架。<br>im-config -s ibus<br>重启系统或者注销当前账户。<br>安装相应输入法(以安装拼音输入法为例)。<br>sudo apt-<span class="hljs-built_in">get</span> install ibus-pinyin<br>附常见几种输入法<br>IBus拼音：sudo apt-<span class="hljs-built_in">get</span> install ibus-pinyin<br>IBUS五笔：sudo apt-<span class="hljs-built_in">get</span> install ibus-table-wubi<br>谷歌拼音输入法：sudo apt-<span class="hljs-built_in">get</span> install ibus-googlepinyin<br>Sun拼音输入法：sudo apt-<span class="hljs-built_in">get</span> install ibus-sunpinyin<br>添加中文输入法，修改输入法切换快捷键。<br>1.通过ibus-setup 命令设置ibus框架，添加已经安装胡输入法;<br><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//下载星火应用商店</span><br><span class="line">https://www.spark-app.store/</span><br><span class="line">typora</span><br><span class="line">wps</span><br><span class="line">vscode</span><br><span class="line">//浏览器edge chrome</span><br><span class="line">sudo apt install ./</span><br><span class="line">//剪切板</span><br><span class="line">sudo apt install copyq</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="宝塔（非必要不安装，更不能安装ssh）"><a href="#宝塔（非必要不安装，更不能安装ssh）" class="headerlink" title="宝塔（非必要不安装，更不能安装ssh）"></a>宝塔（非必要不安装，更不能安装ssh）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O install.sh https://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh ed8484bec</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>下载星火应用商店<br>https:<span class="hljs-regexp">//</span>www.spark-app.store/<br>typora<br>wps<br>vscode<br><span class="hljs-regexp">//</span>浏览器edge chrome<br>sudo apt install ./<br><span class="hljs-regexp">//</span>剪切板<br>sudo apt install copyq<br><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bt default</span><br><span class="line"></span><br><span class="line">????????????: http://[2001:da8:d800:75::aaaa]:11003/35db88fb</span><br><span class="line">????????????: http://172.31.231.129:11003/35db88fb</span><br><span class="line">username: 0q8zccmg</span><br><span class="line">password: 33943113</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="宝塔（非必要不安装，更不能安装ssh）"><a href="#宝塔（非必要不安装，更不能安装ssh）" class="headerlink" title="宝塔（非必要不安装，更不能安装ssh）"></a>宝塔（非必要不安装，更不能安装ssh）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget -O install.sh https:<span class="hljs-regexp">//</span>download.bt.cn<span class="hljs-regexp">/install/i</span>nstall-ubuntu_6.<span class="hljs-number">0</span>.sh &amp;&amp; sudo bash install.sh ed8484bec<br></code></pre></td></tr></table></figure>
 
 
 
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ruby">bt default<br><br><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span>: <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/[2001:da8:d800:75::aaaa]:11003/</span>35db88fb<br><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span><span class="hljs-string">??</span>: <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/172.31.231.129:11003/</span>35db88fb<br><span class="hljs-symbol">username:</span> 0q8zccmg<br><span class="hljs-symbol">password:</span> <span class="hljs-number">33943113</span><br><br></code></pre></td></tr></table></figure>
 
 
 
 
 
 
-<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br><span class="line"></span><br><span class="line">sudo ufw status</span><br><span class="line"></span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw allow 8000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> install ufw<br><br>sudo ufw status<br><br>sudo ufw <span class="hljs-built_in">enable</span><br>sudo ufw allow 8000<br><br></code></pre></td></tr></table></figure>
 
 
 
 
 
 <h3 id="natapp"><a href="#natapp" class="headerlink" title="natapp"></a>natapp</h3><p><a target="_blank" rel="noopener" href="https://natapp.cn/member/dashborad">https://natapp.cn/member/dashborad</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x natapp</span><br><span class="line"></span><br><span class="line">./natapp -authtoken=faec6ac9da0b03fb -config=config.ini</span><br><span class="line"></span><br><span class="line">nohup ./natapp -authtoken=faec6ac9da0b03fb -log=stdout -loglevel=ERROR &amp;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs routeros">chmod a+x natapp<br><br>./natapp <span class="hljs-attribute">-authtoken</span>=faec6ac9da0b03fb <span class="hljs-attribute">-config</span>=config.ini<br><br>nohup ./natapp <span class="hljs-attribute">-authtoken</span>=faec6ac9da0b03fb <span class="hljs-attribute">-log</span>=stdout <span class="hljs-attribute">-loglevel</span>=ERROR &amp;<br><br><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Powered By NATAPP       Please visit https://natapp.cn          (Ctrl+C to Quit)</span><br><span class="line">                           </span><br><span class="line">Tunnel Status           Online                                    </span><br><span class="line">Version                 2.3.9                                    </span><br><span class="line">Forwarding              http://dhruh3.natappfree.cc -&gt; 127.0.0.1:8090          </span><br><span class="line">Web Interface           Disabled                                        </span><br><span class="line">Total Connections       0                       </span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Powered</span> By NATAPP       Please visit https://natapp.cn          (Ctrl+C to Quit)<br>                           <br><span class="hljs-attribute">Tunnel</span> Status           Online                                    <br><span class="hljs-attribute">Version</span>                 <span class="hljs-number">2</span>.<span class="hljs-number">3</span>.<span class="hljs-number">9</span>                                    <br><span class="hljs-attribute">Forwarding</span>              http://dhruh3.natappfree.cc -&gt; <span class="hljs-number">127.0.0.1:8090</span>          <br><span class="hljs-attribute">Web</span> Interface           Disabled                                        <br><span class="hljs-attribute">Total</span> Connections       <span class="hljs-number">0</span>                       <br></code></pre></td></tr></table></figure>
 
 
 
 <h3 id="cpolar"><a href="#cpolar" class="headerlink" title="cpolar"></a>cpolar</h3><p><a target="_blank" rel="noopener" href="https://www.cpolar.com/blog/linux-system-installation-cpolar">https://www.cpolar.com/blog/linux-system-installation-cpolar</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | sudo bash</span><br><span class="line"></span><br><span class="line">cpolar version</span><br><span class="line"></span><br><span class="line">cpolar authtoken M2VkMjU2MzktOWQ4ZC00YmNmLTk5M2ItMjE4MzM3NDA4MjE5</span><br><span class="line"></span><br><span class="line">cpolar http 8080</span><br><span class="line"></span><br><span class="line">sudo systemctl enable cpolar</span><br><span class="line"></span><br><span class="line">sudo systemctl start cpolar</span><br><span class="line"></span><br><span class="line">sudo systemctl status cpolar</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">remove</span><br><span class="line">curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | sudo bash -s -- --remove</span><br><span class="line"></span><br><span class="line">view state</span><br><span class="line">http://127.0.0.1:9200</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -L https:<span class="hljs-regexp">//</span>www.cpolar.com<span class="hljs-regexp">/static/</span>downloads/install-release-cpolar.sh | sudo bash<br><br>cpolar version<br><br>cpolar authtoken M2VkMjU2MzktOWQ4ZC00YmNmLTk5M2ItMjE4MzM3NDA4MjE5<br><br>cpolar http <span class="hljs-number">8080</span><br><br>sudo systemctl enable cpolar<br><br>sudo systemctl start cpolar<br><br>sudo systemctl status cpolar<br><br><br>remove<br>curl -L https:<span class="hljs-regexp">//</span>www.cpolar.com<span class="hljs-regexp">/static/</span>downloads/install-release-cpolar.sh | sudo bash -s -- --remove<br><br>view state<br>http:<span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">9200</span><br><br></code></pre></td></tr></table></figure>
 
 
 
@@ -407,40 +582,40 @@
 
 
 
-<h3 id="ssh（不要重复ssh）"><a href="#ssh（不要重复ssh）" class="headerlink" title="ssh（不要重复ssh）"></a>ssh（不要重复ssh）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -i %HOMEPATH%/_ssh/vlab-vm6585.pem ubuntu@vlab.ustc.edu.cn</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="ssh（不要重复ssh）"><a href="#ssh（不要重复ssh）" class="headerlink" title="ssh（不要重复ssh）"></a>ssh（不要重复ssh）</h3><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mel">ssh -i %HOMEPATH%/_ssh/vlab-vm6585.pem ubuntu@vlab.ustc.edu.cn<br><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host ldlsldls03</span><br><span class="line">    HostName vlab.ustc.edu.cn</span><br><span class="line">    User ubuntu</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile %HOMEPATH%/_ssh/vlab-vm6585.pem</span><br><span class="line">    ForwardAgent yes</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">Host ldlsldls03<br>    HostName vlab.ustc.edu.cn<br>    <span class="hljs-keyword">User</span> <span class="hljs-title">ubuntu</span><br>    Port <span class="hljs-number">22</span><br>    IdentityFile %HOMEPATH%/_ssh/vlab-vm6585.pem<br>    ForwardAgent yes<br></code></pre></td></tr></table></figure>
 
 
 
 
 
 <h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>参考教程：<a target="_blank" rel="noopener" href="https://linux.cn/article-14871-1.html">容器与云|如何在 Ubuntu 22.04 LTS 中安装 Docker 和 Docker Compose (linux.cn)</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">curl</span> -<span class="hljs-string">fsSL</span> <span class="hljs-string">https</span>://<span class="hljs-string">get</span>.<span class="hljs-string">docker</span>.<span class="hljs-string">com</span> -<span class="hljs-string">o</span> <span class="hljs-built_in">get-docker.sh</span><br><span class="hljs-string">sudo</span> <span class="hljs-string">sh</span> <span class="hljs-built_in">get-docker.sh</span><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">sudo docker version</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">systemctl status docker<br>sudo systemctl <span class="hljs-literal">start</span> docker<br>sudo docker <span class="hljs-keyword">version</span><br></code></pre></td></tr></table></figure>
 
 
 
 <p>列出所有本地镜像：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker images</span><br></code></pre></td></tr></table></figure>
 
 <p>列出正在运行的容器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker ps</span><br></code></pre></td></tr></table></figure>
 
 <p>列出所有容器（无论是否在运行）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">docker ps -<span class="hljs-selector-tag">a</span><br></code></pre></td></tr></table></figure>
 
 <p>删除容器和镜像</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -a -q)</span><br><span class="line">docker rm $(docker ps -a -q)</span><br><span class="line">docker rmi $(docker images -q)</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">docker stop <span class="hljs-constructor">$(<span class="hljs-params">docker</span> <span class="hljs-params">ps</span> -<span class="hljs-params">a</span> -<span class="hljs-params">q</span>)</span><br>docker rm <span class="hljs-constructor">$(<span class="hljs-params">docker</span> <span class="hljs-params">ps</span> -<span class="hljs-params">a</span> -<span class="hljs-params">q</span>)</span><br>docker rmi <span class="hljs-constructor">$(<span class="hljs-params">docker</span> <span class="hljs-params">images</span> -<span class="hljs-params">q</span>)</span><br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="安装typecho"><a href="#安装typecho" class="headerlink" title="安装typecho"></a>安装typecho</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 /usr/uploads</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="安装typecho"><a href="#安装typecho" class="headerlink" title="安装typecho"></a>安装typecho</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">chmod <span class="hljs-number">777</span> <span class="hljs-regexp">/usr/u</span>ploads<br><br><br></code></pre></td></tr></table></figure>
 
 
 
@@ -448,32 +623,28 @@
 
 
 
-<h3 id="安装-halo"><a href="#安装-halo" class="headerlink" title="安装 halo"></a>安装 halo</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull halohub/halo:2.5</span><br><span class="line"></span><br><span class="line">sudo mkdir halo &amp;&amp; cd halo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="安装-halo"><a href="#安装-halo" class="headerlink" title="安装 halo"></a>安装 halo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo docker pull halohub/halo:2.5<br><br>sudo <span class="hljs-built_in">mkdir</span> halo &amp;&amp; <span class="hljs-built_in">cd</span> halo<br><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run \</span><br><span class="line">  -it -d \</span><br><span class="line">  --name halo \</span><br><span class="line">  -p 8090:8090 \</span><br><span class="line">  -v /home/halo/.halo2:/root/.halo2 \</span><br><span class="line">  halohub/halo:2.5 \</span><br><span class="line">  --halo.external-url=http://localhost:8090/ \</span><br><span class="line">  --halo.security.initializer.superadminusername=ldlsldls \</span><br><span class="line">  --halo.security.initializer.superadminpassword=444</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sudo docker run \<br>  -it -d \<br>  <span class="hljs-attr">--name</span> halo \<br>  -<span class="hljs-selector-tag">p</span> <span class="hljs-number">8090</span>:<span class="hljs-number">8090</span> \<br>  -v /home/halo/<span class="hljs-selector-class">.halo2</span>:/root/<span class="hljs-selector-class">.halo2</span> \<br>  halohub/halo:<span class="hljs-number">2.5</span> \<br>  <span class="hljs-attr">--halo</span>.external-url=http:<span class="hljs-comment">//localhost:8090/ \</span><br>  <span class="hljs-attr">--halo</span><span class="hljs-selector-class">.security</span><span class="hljs-selector-class">.initializer</span>.superadminusername=ldlsldls \<br>  <span class="hljs-attr">--halo</span><span class="hljs-selector-class">.security</span><span class="hljs-selector-class">.initializer</span>.superadminpassword=<span class="hljs-number">444</span><br></code></pre></td></tr></table></figure>
 
 
 
 <p>netapp</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./natapp -authtoken=faec6ac9da0b03fb -log=stdout -loglevel=ERROR &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">nohup ./natapp <span class="hljs-attribute">-authtoken</span>=faec6ac9da0b03fb <span class="hljs-attribute">-log</span>=stdout <span class="hljs-attribute">-loglevel</span>=ERROR &amp;<br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="安装code-server"><a href="#安装code-server" class="headerlink" title="安装code server"></a>安装code server</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># 进入服务器</span><br><span class="line">mkdir coder &amp;&amp; cd coder</span><br><span class="line"></span><br><span class="line">sudo su</span><br><span class="line"># 拉取镜像</span><br><span class="line">docker pull codercom/code-server:latest</span><br><span class="line"># 创建物理机所需要的映射目录</span><br><span class="line"></span><br><span class="line">mkdir -p /home/coder/.config</span><br><span class="line">mkdir -p /home/coder/www</span><br><span class="line">mkdir -p ~/.config</span><br><span class="line">mkdir -p ~/project_linux/coder/project</span><br><span class="line"></span><br><span class="line"># 创建容器</span><br><span class="line"># -p 8080:8080映射端口，可映射多个</span><br><span class="line">docker run -d -it --name code-server \</span><br><span class="line">	-p 18080:8080 \</span><br><span class="line">    -v &quot;$HOME/.config:/home/coder/.config&quot; \</span><br><span class="line">    -v &quot;$HOME/project_linux/coder/project:/home/coder/www&quot; \</span><br><span class="line">    -u &quot;$(id -u):$(id -g)&quot; \</span><br><span class="line">    -e &quot;DOCKER_USER=$USER&quot; \</span><br><span class="line">    -e PASSWORD=4 \</span><br><span class="line">	-e SUDO_PASSWORD=4 \</span><br><span class="line">	-u=root \</span><br><span class="line">	--privileged=true \</span><br><span class="line">    codercom/code-server:latest</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">chmod -R 777 /var/coder/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># view log</span><br><span class="line">docker logs code-server</span><br><span class="line"></span><br><span class="line"># pw</span><br><span class="line">cat /var/.config/code-server/config.yaml</span><br></pre></td></tr></table></figure>
-
-
-
-
+<h3 id="安装code-server"><a href="#安装code-server" class="headerlink" title="安装code server"></a>安装code server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 进入服务器</span><br><span class="hljs-built_in">mkdir</span> coder &amp;&amp; <span class="hljs-built_in">cd</span> coder<br><br>sudo su<br><span class="hljs-comment"># 拉取镜像</span><br>docker pull codercom/code-server:latest<br><span class="hljs-comment"># 创建物理机所需要的映射目录</span><br><br><span class="hljs-built_in">mkdir</span> -p /home/coder/.config<br><span class="hljs-built_in">mkdir</span> -p /home/coder/www<br><span class="hljs-built_in">mkdir</span> -p ~/.config<br><span class="hljs-built_in">mkdir</span> -p ~/project_linux/coder/project<br><br><span class="hljs-comment"># 创建容器</span><br><span class="hljs-comment"># -p 8080:8080映射端口，可映射多个</span><br>docker run -d -it --name code-server \<br>	-p 18080:8080 \<br>    -v <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.config:/home/coder/.config&quot;</span> \<br>    -v <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/project_linux/coder/project:/home/coder/www&quot;</span> \<br>    -u <span class="hljs-string">&quot;<span class="hljs-subst">$(id -u)</span>:<span class="hljs-subst">$(id -g)</span>&quot;</span> \<br>    -e <span class="hljs-string">&quot;DOCKER_USER=<span class="hljs-variable">$USER</span>&quot;</span> \<br>    -e PASSWORD=4 \<br>	-e SUDO_PASSWORD=4 \<br>	-u=root \<br>	--privileged=<span class="hljs-literal">true</span> \<br>    codercom/code-server:latest<br>    <br>    <br><span class="hljs-built_in">chmod</span> -R 777 /var/coder/<br><br><br><span class="hljs-comment"># view log</span><br>docker logs code-server<br><br><span class="hljs-comment"># pw</span><br><span class="hljs-built_in">cat</span> /var/.config/code-server/config.yaml<br></code></pre></td></tr></table></figure>
 
 
 
 
 
-<h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line"></span><br><span class="line">node -v</span><br><span class="line"></span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 
 
 
 
+<h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> install nodejs<br><br>node -v<br><br>sudo apt-<span class="hljs-built_in">get</span> install npm<br><br>npm -v<br></code></pre></td></tr></table></figure>
 
 
 
@@ -487,11 +658,15 @@
 
 
 
-<h2 id="v04-sudo常用命令"><a href="#v04-sudo常用命令" class="headerlink" title="v04_sudo常用命令"></a>v04_sudo常用命令</h2><h3 id="ubuntu的文件目录的含义："><a href="#ubuntu的文件目录的含义：" class="headerlink" title="ubuntu的文件目录的含义："></a><strong>ubuntu的文件目录的含义：</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//软件安装目录，相当于C盘</span><br><span class="line">cd /usr/local/</span><br><span class="line">//相当于D盘</span><br><span class="line">Cd /opt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作:"></a><strong>文件操作:</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br><span class="line">ll</span><br><span class="line">ll -a</span><br><span class="line">mkdir xxx</span><br><span class="line">touch xxx.txt</span><br><span class="line">cd xxx</span><br><span class="line">cd xxx/xxx</span><br><span class="line">cd /</span><br><span class="line">cd ~</span><br><span class="line">cd ./xxx</span><br><span class="line"></span><br><span class="line">rm xxx.txt</span><br><span class="line">rm -rf xxx</span><br><span class="line">-d：直接把欲删除的目录的硬连接数据删除成0，删除该目录；</span><br><span class="line">-f：强制删除文件或目录；</span><br><span class="line">-i：删除已有文件或目录之前先询问用户；</span><br><span class="line">-r：递归处理，将指定目录下的所有文件与子目录一并处理；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="v04-sudo常用命令"><a href="#v04-sudo常用命令" class="headerlink" title="v04_sudo常用命令"></a>v04_sudo常用命令</h2><h3 id="ubuntu的文件目录的含义："><a href="#ubuntu的文件目录的含义：" class="headerlink" title="ubuntu的文件目录的含义："></a><strong>ubuntu的文件目录的含义：</strong></h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>软件安装目录，相当于C盘<br>cd <span class="hljs-regexp">/usr/</span>local/<br><span class="hljs-regexp">//</span>相当于D盘<br>Cd /opt<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作:"></a><strong>文件操作:</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">pwd</span><br>ll<br>ll -a<br><span class="hljs-built_in">mkdir</span> xxx<br><span class="hljs-built_in">touch</span> xxx.txt<br><span class="hljs-built_in">cd</span> xxx<br><span class="hljs-built_in">cd</span> xxx/xxx<br><span class="hljs-built_in">cd</span> /<br><span class="hljs-built_in">cd</span> ~<br><span class="hljs-built_in">cd</span> ./xxx<br><br><span class="hljs-built_in">rm</span> xxx.txt<br><span class="hljs-built_in">rm</span> -rf xxx<br>-d：直接把欲删除的目录的硬连接数据删除成0，删除该目录；<br>-f：强制删除文件或目录；<br>-i：删除已有文件或目录之前先询问用户；<br>-r：递归处理，将指定目录下的所有文件与子目录一并处理；<br><br></code></pre></td></tr></table></figure>
 
 
 
@@ -503,7 +678,7 @@
 <p>sudo chown -R ldl &#x2F;media&#x2F;ldl&#x2F;Data</p>
 <p>可读写</p>
 <p>sudo chmod 777 &#x2F;home&#x2F;fpi&#x2F;data<br>fuser -a &#x2F;dev&#x2F;sda3<br>fuser -k &#x2F;dev&#x2F;sda3</p>
-<h3 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf iverilog</span><br></pre></td></tr></table></figure>
+<h3 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">rm</span> -rf iverilog<br></code></pre></td></tr></table></figure>
 
 
 
@@ -515,42 +690,42 @@
 <h3 id="关闭进程"><a href="#关闭进程" class="headerlink" title="关闭进程"></a>关闭进程</h3><p>killall   (program应用名称)  </p>
 <p>xkill</p>
 <h2 id="v05-博客系统"><a href="#v05-博客系统" class="headerlink" title="v05_博客系统"></a>v05_博客系统</h2><p><a target="_blank" rel="noopener" href="https://yushuaigee.gitee.io/2020/12/31/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2(%E4%B8%80)%E2%80%94%E2%80%94%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAhexo%E6%A1%86%E6%9E%B6/">从零开始免费搭建自己的博客(一)——本地搭建hexo框架 | 半亩方塘 (gitee.io)</a></p>
-<h4 id="1安装node"><a href="#1安装node" class="headerlink" title="1安装node"></a>1安装node</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmd</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<h4 id="1安装node"><a href="#1安装node" class="headerlink" title="1安装node"></a>1安装node</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">cmd<br><span class="hljs-built_in">npm</span> -v<br></code></pre></td></tr></table></figure>
 
 
 
-<h4 id="2git"><a href="#2git" class="headerlink" title="2git"></a>2git</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmd</span><br><span class="line">git -v</span><br></pre></td></tr></table></figure>
+<h4 id="2git"><a href="#2git" class="headerlink" title="2git"></a>2git</h4><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">cmd</span><span class="language-bash"></span><br><span class="language-bash">git -v</span><br></code></pre></td></tr></table></figure>
 
 
 
-<h4 id="3安装hexo"><a href="#3安装hexo" class="headerlink" title="3安装hexo"></a>3安装hexo</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#下载hexo</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">#初始化</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line"></span><br><span class="line">#下载依赖</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">#生成网页</span><br><span class="line">hexo g &amp;&amp; hexo s</span><br><span class="line">http://localhost:4000/</span><br><span class="line"></span><br><span class="line">#新建文章</span><br><span class="line">hexo new &quot;博客搭建&quot;</span><br><span class="line">hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<h4 id="3安装hexo"><a href="#3安装hexo" class="headerlink" title="3安装hexo"></a>3安装hexo</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-comment">#下载hexo</span><br><span class="hljs-built_in">npm</span> install hexo-cli -g<br><br><span class="hljs-comment">#初始化</span><br>hexo init blog<br>cd blog<br><br><span class="hljs-comment">#下载依赖</span><br><span class="hljs-built_in">npm</span> install<br><br><span class="hljs-comment">#生成网页</span><br>hexo g &amp;&amp; hexo s<br>http:<span class="hljs-regexp">//localhost:4000/</span><br><br><span class="hljs-comment">#新建文章</span><br>hexo <span class="hljs-keyword">new</span> <span class="hljs-string">&quot;博客搭建&quot;</span><br>hexo g &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>
 
 
 
 
 
-<h4 id="4下载主题"><a href="#4下载主题" class="headerlink" title="4下载主题"></a>4下载主题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/mirrors/ayer.git themes/ayer</span><br><span class="line"></span><br><span class="line"># _config.yml</span><br><span class="line">theme: ayer</span><br><span class="line"></span><br><span class="line"># /themes/ayer/_config.yml</span><br><span class="line">按照教程中的修改</span><br><span class="line"></span><br><span class="line"># 清理 &amp;&amp; 生成 &amp;&amp; 启动</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<h4 id="4下载主题"><a href="#4下载主题" class="headerlink" title="4下载主题"></a>4下载主题</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>tee.com<span class="hljs-regexp">/mirrors/</span>ayer.git themes/ayer<br><br><span class="hljs-comment"># _config.yml</span><br>theme: ayer<br><br><span class="hljs-comment"># /themes/ayer/_config.yml</span><br>按照教程中的修改<br><br><span class="hljs-comment"># 清理 &amp;&amp; 生成 &amp;&amp; 启动</span><br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://ghproxy.com/https://github.com/stiekel/hexo-theme-random.git themes/random</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//g</span>hproxy.com<span class="hljs-regexp">/https:/</span><span class="hljs-regexp">/github.com/</span>stiekel<span class="hljs-regexp">/hexo-theme-random.git themes/</span>random<br><br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iHongRen/legend themes/legend</span><br><span class="line"></span><br><span class="line">theme: legend</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/iHongRen/</span>legend themes/legend<br><br>theme: legend<br>hexo s<br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/c/Users/ldl/.ssh/id_rsa.pub</span><br><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvWBQQecXDW/hLYE4pynKqLucEUtnLeqV20P5Ru/xmA7W7TyNuAK0MZTPuNKUZya+ST0kGZDAHJ35CScado6BUKxjySWgfH0iUuLOCt/t3IgKWK7dKLwjYAoxciCP4mgYbGY4q8dXLaQARyAOJNWdYTJwjzU0Cmz2bydTI0/WbwqspY5Qymv+qK+Pg7bLFyPubNE0IDqjFo1fB7pjU1mDShYHqnsNQxRh8OV0pjqAqiVglDJ5qFUNZUOzgSL3344YTUk7U3vlrAu6hYe/wP+ZrN1BNI9vHh5e0xRY4LFplHrFyJh5norSBw4G+hKP1rYDDBl/zTlNNUPMUt1FgpFSwII+Ji0BolwbP9U+/0W501DzFJ6iuNRkTBV123alUi+u7p3kjHCnJPt3ExjrVbMxVe8geJZSPhJMdh3z/gQytKGrf2MienFIUnU3+E89dmJz1aPsVTNJXFa58dC+SFo4pv1vGeWH8ze8Rm/g671doDVXD0GCfs731jVCoPY6l+0E= 1738069568@qq.com</span><br><span class="line"></span><br><span class="line"># 其中 xxxxxx 是前面多次用到的你的GitHub用户名</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:ldlsdls/ldlsldls.github.io.git</span><br><span class="line">  branch: main</span><br><span class="line">  </span><br><span class="line">  # 注意最后变成d了，原来的s表示服务起在本地，现在的d表示部署在远端</span><br><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/c/</span>Users<span class="hljs-regexp">/ldl/</span>.ssh/id_rsa.pub<br>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvWBQQecXDW<span class="hljs-regexp">/hLYE4pynKqLucEUtnLeqV20P5Ru/</span>xmA7W7TyNuAK0MZTPuNKUZya+ST0kGZDAHJ35CScado6BUKxjySWgfH0iUuLOCt<span class="hljs-regexp">/t3IgKWK7dKLwjYAoxciCP4mgYbGY4q8dXLaQARyAOJNWdYTJwjzU0Cmz2bydTI0/</span>WbwqspY5Qymv+qK+Pg7bLFyPubNE0IDqjFo1fB7pjU1mDShYHqnsNQxRh8OV0pjqAqiVglDJ5qFUNZUOzgSL3344YTUk7U3vlrAu6hYe<span class="hljs-regexp">/wP+ZrN1BNI9vHh5e0xRY4LFplHrFyJh5norSBw4G+hKP1rYDDBl/</span>zTlNNUPMUt1FgpFSwII+Ji0BolwbP9U+<span class="hljs-regexp">/0W501DzFJ6iuNRkTBV123alUi+u7p3kjHCnJPt3ExjrVbMxVe8geJZSPhJMdh3z/g</span>QytKGrf2MienFIUnU3+E89dmJz1aPsVTNJXFa58dC+SFo4pv1vGeWH8ze8Rm/g671doDVXD0GCfs731jVCoPY6l+<span class="hljs-number">0</span>E= <span class="hljs-number">1738069568</span>@qq.com<br><br><span class="hljs-comment"># 其中 xxxxxx 是前面多次用到的你的GitHub用户名</span><br>deploy:<br>  type: git<br>  repo: git@github.com:ldlsdls/ldlsldls.github.io.git<br>  branch: main<br>  <br>  <span class="hljs-comment"># 注意最后变成d了，原来的s表示服务起在本地，现在的d表示部署在远端</span><br>hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
 
 
 
 <p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1594769">Git报错解决：git@gitee.com: Permission denied (publickey). - 腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;1738069568@qq.com&quot;</span><br><span class="line"></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9hK6e8zBBNImC54b4aD9PrTrt9oXYsnFABG625/pj8K1TbmfRC2JyArNcEoRKsYea3LmOKw1RT7z1LwJSJ1E5T0b9Bs/OJoPsV7/dyw5Eerbgpvs7gaN3pFmTE913zfMb37FNBePMweOVxVfl7Yb7qgCwFHTNbJEdYmNuoac2r2xFy6xxpSidrWjK4xlJFUMA4DY6x/xW3+IIbmDNl5tlabVkfdPomeRjgQBxwDIPJKYGEI0njmBKBqqMmL4WjeGTY7ZAzYTXT0ezRiq4rDbw4bZN28+oJBWizK15aXh7Eo2muoT0KvNlZdz8ADiaF63wxWoSDvuXBZrFtJgAhH8AMkJYGmzCiSJaVkRjOZWeag8I5FXNI9gWeV++e6Ee+CdR8+lrb483Swwm4umJAnpvV6gy7t1UbIE44sIyAi3tV8V32M2Yi7WjxfRhJLE/+podo7fvYbGa5aaIhFsQhCr2wn7+1rQb5VXVtA70q0ZWoh4FBCG8EUFJP54vnDR8j8U= 1738069568@qq.com</span><br><span class="line"></span><br><span class="line">ssh -T git@gitee</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@gitee.com:ldlsldls/l.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;1738069568@qq.com&quot;</span><br><br><span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub<br>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9hK6e8zBBNImC54b4aD9PrTrt9oXYsnFABG625/pj8K1TbmfRC2JyArNcEoRKsYea3LmOKw1RT7z1LwJSJ1E5T0b9Bs/OJoPsV7/dyw5Eerbgpvs7gaN3pFmTE913zfMb37FNBePMweOVxVfl7Yb7qgCwFHTNbJEdYmNuoac2r2xFy6xxpSidrWjK4xlJFUMA4DY6x/xW3+IIbmDNl5tlabVkfdPomeRjgQBxwDIPJKYGEI0njmBKBqqMmL4WjeGTY7ZAzYTXT0ezRiq4rDbw4bZN28+oJBWizK15aXh7Eo2muoT0KvNlZdz8ADiaF63wxWoSDvuXBZrFtJgAhH8AMkJYGmzCiSJaVkRjOZWeag8I5FXNI9gWeV++e6Ee+CdR8+lrb483Swwm4umJAnpvV6gy7t1UbIE44sIyAi3tV8V32M2Yi7WjxfRhJLE/+podo7fvYbGa5aaIhFsQhCr2wn7+1rQb5VXVtA70q0ZWoh4FBCG8EUFJP54vnDR8j8U= 1738069568@qq.com<br><br>ssh -T git@gitee<br><br>deploy:<br>  <span class="hljs-built_in">type</span>: git<br>  repo: git@gitee.com:ldlsldls/l.git<br>  branch: master<br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git@gitlab.com:ldlsldls/blog.git</span><br><span class="line"></span><br><span class="line">npm install hexo-deployer-g</span><br></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">git@gitlab.com:ldlsldls/blog.git<br><br><span class="hljs-built_in">npm</span> install hexo-deployer-g<br></code></pre></td></tr></table></figure>
 
 
 
@@ -589,99 +764,332 @@
 <p>lsblk</p>
 <p>sudo ntfsfix &#x2F;dev&#x2F;sda1</p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ubuntu-sudo命令</div>
+      <div>http://example.com/2023/09/05/ubuntu-sudo命令/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ldlsldls</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年9月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/" data-id="clm6td2ew00007gucco6r6sfz" data-title="ubuntu-sudo命令" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li></ul>
-    </div>
+    <div class="license-icon iconfont"></div>
   </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/">ubuntu-sudo命令</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 ldlsldls<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
-  </div>
-</footer>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+  </div>
+</div>
+
+
+
+
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
 
-<script src="/js/script.js"></script>
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
-  </div>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
