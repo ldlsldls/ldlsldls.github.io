@@ -6,15 +6,15 @@
   
   <title>ubuntu-sudo命令 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="挂载 12345678910sudo blkid&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE&#x3D;&quot;ext4&quot; PARTLABEL&#x3D;&quot;sata2&quot; PARTUUID&#x3D;&quot;6bfaee0e-9991-4ff2-aca7-fb36b14c008c&quot;sudo">
+  <meta name="description" content="挂载 1234567891011sudo fdisk -lsudo blkid&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE&#x3D;&quot;ext4&quot; PARTLABEL&#x3D;&quot;sata2&quot; PARTUUID&#x3D;&quot;6bfaee0e-9991-4ff2-aca7-fb36b14">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu-sudo命令">
 <meta property="og:url" content="http://example.com/2023/09/05/ubuntu-sudo%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="挂载 12345678910sudo blkid&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE&#x3D;&quot;ext4&quot; PARTLABEL&#x3D;&quot;sata2&quot; PARTUUID&#x3D;&quot;6bfaee0e-9991-4ff2-aca7-fb36b14c008c&quot;sudo">
+<meta property="og:description" content="挂载 1234567891011sudo fdisk -lsudo blkid&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE&#x3D;&quot;ext4&quot; PARTLABEL&#x3D;&quot;sata2&quot; PARTUUID&#x3D;&quot;6bfaee0e-9991-4ff2-aca7-fb36b14">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T19:07:56.000Z">
-<meta property="article:modified_time" content="2023-09-06T06:00:54.866Z">
+<meta property="article:modified_time" content="2023-09-06T06:50:36.770Z">
 <meta property="article:author" content="ldlsldls">
 <meta name="twitter:card" content="summary">
   
@@ -98,12 +98,12 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>挂载</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid</span><br><span class="line"></span><br><span class="line">/dev/sda1: UUID=&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE=&quot;ext4&quot; PARTLABEL=&quot;sata2&quot; PARTUUID=&quot;6bfaee0e-9991-4ff2-aca7-fb36b14c008c&quot;</span><br><span class="line"></span><br><span class="line">sudo mkdir /home/mount</span><br><span class="line"></span><br><span class="line">sudo mount /dev/sda1 /home/mount/</span><br><span class="line">sudo mount -t ext4 -o umask=000 /dev/sda1 /home/mount</span><br><span class="line"></span><br><span class="line">sudo umount /home/mount</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br><span class="line"></span><br><span class="line">sudo blkid</span><br><span class="line"></span><br><span class="line">/dev/sda1: UUID=&quot;6f09200b-123c-47fa-84b5-d9647a3477c3&quot; TYPE=&quot;ext4&quot; PARTLABEL=&quot;sata2&quot; PARTUUID=&quot;6bfaee0e-9991-4ff2-aca7-fb36b14c008c&quot;</span><br><span class="line"></span><br><span class="line">sudo mkdir /home/mount</span><br><span class="line"></span><br><span class="line">sudo mount /dev/sda1 /home/mount</span><br><span class="line"></span><br><span class="line">sudo umount /home/mount</span><br></pre></td></tr></table></figure>
 
 
 
 <p>权限</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ld /home/mount/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls -ld /home/mount</span><br><span class="line"></span><br><span class="line">sudo vim /etc/fstab</span><br><span class="line"></span><br><span class="line">UUID=xxx /mnt/disk1 ext4 auto,user,rw 0 0</span><br></pre></td></tr></table></figure>
 
 
 
