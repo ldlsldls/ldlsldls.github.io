@@ -24,7 +24,7 @@
 <meta property="og:description" content="主要设置一些 deadline ，以推进做事进程。 工作日记2023时间轴：              09.04 ~ 09.10 调研                      调研 FPGA 相关的创新方向；                            09.11 ~ 09.13 实践                      FPGA 上跑通一个视频接收与显示系统；">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-11T00:54:42.000Z">
-<meta property="article:modified_time" content="2023-09-11T02:05:21.703Z">
+<meta property="article:modified_time" content="2023-09-11T02:58:35.925Z">
 <meta property="article:author" content="ldlsldls">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          601 字
+          721 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -330,7 +330,8 @@
 <li><input disabled="" type="checkbox"> 跑通TFT屏幕模块；</li>
 <li><input disabled="" type="checkbox"> 跑通摄像头模块，完成摄像头到DDR和TFT屏幕的过程；</li>
 </ul>
-<h5 id="尝试一种通用的-AI-加速的硬件架构；"><a href="#尝试一种通用的-AI-加速的硬件架构；" class="headerlink" title="尝试一种通用的 AI 加速的硬件架构；"></a>尝试一种通用的 AI 加速的硬件架构；</h5><ul>
+<h5 id="尝试一种通用的-AI-加速的硬件架构；"><a href="#尝试一种通用的-AI-加速的硬件架构；" class="headerlink" title="尝试一种通用的 AI 加速的硬件架构；"></a>尝试一种通用的 AI 加速的硬件架构；</h5><p>设计通用的AI加速硬件架构。对于一个新算法，只需少量修改数据流水线和资源分配即可投入使用，无需针对此算法做过多的适配，对于优秀的硬件架构设计甚至可以进行进一步的数字IC测试、流片。</p>
+<ul>
 <li>相比 GPU 使用存取操作更精简的指令；</li>
 <li>它的硬件将是固定的，这意味着放弃 FPGA 可以反复烧写的特点，而是在计算模块、存储、及其通信的架构中寻求创新；</li>
 <li>后期工作可能是进行数字 IC 测试；</li>
@@ -339,9 +340,8 @@
 </ul>
 </li>
 </ul>
-<h5 id="搭建从高级编程语言到-verilog-的编译器；"><a href="#搭建从高级编程语言到-verilog-的编译器；" class="headerlink" title="搭建从高级编程语言到 verilog 的编译器；"></a>搭建从高级编程语言到 verilog 的编译器；</h5><ul>
-<li>对算法进行简单的更改就能迅速部署，自动化的进行硬件资源约束下的设计、流水线优化、寄存器资源转移到 DDR 上；</li>
-<li>充分利用 FPGA 可以反复烧写的优势；</li>
+<h5 id="搭建从高级编程语言到-verilog-的编译器；"><a href="#搭建从高级编程语言到-verilog-的编译器；" class="headerlink" title="搭建从高级编程语言到 verilog 的编译器；"></a>搭建从高级编程语言到 verilog 的编译器；</h5><p>通过软件工程自动化的进行硬件资源约束下的设计，给出多种硬件资源和速度的方案，充分利用FPGA可以反复烧写的优势，只需输入需要移植的算法、现有硬件资源、允许的速度等级和延时要求，即可快速输出硬件电路设计。</p>
+<ul>
 <li>后期工作可能是软件工程；</li>
 <li>相关的开源项目：<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/PKU-IDEA/OpenPARF">https://github.com/PKU-IDEA/OpenPARF</a></li>
